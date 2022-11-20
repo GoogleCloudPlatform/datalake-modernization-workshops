@@ -1,4 +1,4 @@
-# Dataplex Labs
+# Datalake Modernization Hands-on Labs
 
 ## About
 This repository features self-contained, hands-on-labs with detailed and step-by-step instructions, associated collateral (data, code, configuration, terraform etc) that demystify products, features and integration points to architect and build modern datalakes on GCP.
