@@ -185,16 +185,12 @@ ASP_NAME                    =<your_autoscaling_policy_name>
 
 Once these values have been entered, please save the file.
 
-#### 2. Uploading shell scripts to cloud shell
-
-Upload the repository to the Google Cloud Shell instance
-
-#### 3. Shell Script Execution
+#### 2. Shell Script Execution
 
 Next, run the following commands in cloud shell to execute the shell script: <br>
 
 ```
-cd admin-usecase/01-scripts-and-config/cloud-shell
+cd ~/admin-usecase/01-scripts-and-config/cloud-shell
 bash cloud-shell-resource-creation.sh
 ```
 
