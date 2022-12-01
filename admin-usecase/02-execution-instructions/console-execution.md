@@ -59,7 +59,7 @@ Next, fill in the following values in the job creation window :
 
 - **Job ID** : A unique identifier for your batch
 - **Job Type** : PySpark
-- **Main Python File** : gs://<your_code_bucket_name>/admin-usecase/01-scripts-and-config/pyspark/page_view_autoscaling.py
+- **Main Python File** : gs://<your_code_bucket_name>/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_autoscaling.py
 - **JAR Files** - gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
 ![this is a screenshot](/images/dtpc.PNG)
