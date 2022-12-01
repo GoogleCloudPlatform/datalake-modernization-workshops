@@ -28,7 +28,13 @@ The following services and resources will be created via Terraform scripts:
 
 ### 1.2. Uploading Terraform scripts, PySpark scripts and datasets to cloud shell
 
-- Upload the repository to the Google Cloud Shell instance<br>
+```
+cd ~
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv biglake-finegrained-lab/ ~/
+cd ..
+```
 
 ### 1.3. Navigate to the Cloud Shell provisioning directory
 ```
