@@ -55,7 +55,15 @@ gcloud config set project <enter your project id here>
 
 #### 1. Uploading Terraform scripts, PySpark scripts and datasets to cloud shell
 
-Upload the repository to the Google Cloud Shell instance
+Run the following commands in Cloud Shell to clone the repository to your cloud shell instance:
+
+```
+cd ~
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv admin-usecase/ ~/
+cd ..
+```
 
 #### 2. Terraform Script Execution
 
