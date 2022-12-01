@@ -13,12 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
-
-/** 
-* Replace the text in angle brackets '<>' with the appropriate values for 
-*  your account and project
-*/
 
 variable "location" {
   type        = string
