@@ -244,7 +244,7 @@ Execute the following gcloud command in cloud shell to execute the PySpark scrip
 gcloud dataproc jobs submit pyspark \
 --cluster $CLUSTER_NAME \
 --id $NAME-page-view-count-$RANDOM \
-gs://$BUCKET_CODE/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_autoscaling.py \
+gs://$BUCKET_CODE/admin-usecase/01-scripts-and-config/pyspark/page_view_autoscaling.py \
 --region $REGION \
 --project $PROJECT_ID \
 --jars gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
