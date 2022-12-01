@@ -49,7 +49,18 @@ Run the below command to set the project to cloud shell terminal:
 
 ```
 gcloud config set project <enter your project id here>
+```
 
+#### 4. Uploading PySpark scripts and datasets to cloud shell
+
+Run the following commands in Cloud Shell to clone the repository to your cloud shell instance:
+
+```
+cd ~
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv admin-usecase/ ~/
+cd ..
 ```
 
 #### 4. Declaring Variables
