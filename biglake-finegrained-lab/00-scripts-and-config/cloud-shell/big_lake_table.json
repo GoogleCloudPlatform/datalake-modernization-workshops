@@ -1,0 +1,50 @@
+{
+"schema": {
+    "fields": [
+    {
+        "name": "country",
+        "type": "STRING"
+    },
+    {
+        "name": "month",
+        "type": "DATE"
+    },
+    {
+        "name": "Gross_Revenue",
+        "type": "FLOAT"
+    },
+    {
+        "name": "Discount",
+        "type": "FLOAT",
+        "policyTags": {
+            "names": [
+                <Insert the POLICY_TAG_ADDRESS here>
+            ]
+        }
+    },
+    {
+        "name": "Net_Revenue",
+        "type": "FLOAT",
+        "policyTags": {
+            "names": [
+                <Insert the POLICY_TAG_ADDRESS here>
+            ]
+        }
+    }
+]
+},
+
+"csvOptions": {
+    "allowJaggedRows": false,
+    "allowQuotedNewlines": false,
+    "encoding": "UTF-8",
+    "fieldDelimiter": ",",
+    "quote": "\"",
+    "skipLeadingRows": 1
+},
+"sourceFormat": "CSV",
+"sourceUris": [
+    "gs://dataproc-bucket-<YOUR-PROJECT-NUMBER>/IceCreamSales.csv"
+]
+
+}
