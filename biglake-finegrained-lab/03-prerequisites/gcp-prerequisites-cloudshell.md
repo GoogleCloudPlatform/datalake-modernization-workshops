@@ -68,7 +68,7 @@ cloudidentity.googleapis.com
 
 Go to cloud console and open BigQuery and click on the Policy tag section. 
 
-![flow](./images/Policy_tag.png) 
+![flow](../images/Policy_tag.png) 
 
 ### 2.4. Create Taxonomy by filling in the details as shown below
 
@@ -82,11 +82,11 @@ Policy tag name: Financial Data
 Description: A policy tag normally associated with low security items
 ```
 
-![flow](./images/Create_taxonomy.png)
+![flow](../images/Create_taxonomy.png)
 
 * Copy the ID of the policy tag after it's created, for example: projects/<PROJECT-ID>/locations/<LOCATION>/taxonomies/<POLICY-NUMBER>/policyTags/<POLICY-TAG-ID>
 
-![flow](./images/policy_tag_ID.png)
+![flow](../images/policy_tag_ID.png)
 
 
 ### 2.5. Granting of fine grained reader permisions to RLS users ONLY
@@ -94,11 +94,11 @@ Description: A policy tag normally associated with low security items
 Go to Policy tag section of BigQuery console and click on the 'Show Info Panel' on the right top corner.
 Once the panel opens, select the Taxonomy you just created and in Add principals section add the usernames of RLS user only.
 
-![flow](./images/fine_grained_reader_permission.png)
+![flow](../images/fine_grained_reader_permission.png)
 
 After that assign the role of Fine Grained Reader to those users and click on Save
 
-![flow](./images/giving_permission.png)
+![flow](../images/giving_permission.png)
 
 ### 2.6. Define variables for use
 
@@ -138,7 +138,7 @@ Change the variables accordingly and run the below code to get the service accou
 ```
 bq show --connection <YOUR_PROJECT_ID>.<LOCATION>.<CONNECTION_ID> 
 ```
-![flow](./images/service_account_id.png)
+![flow](../images/service_account_id.png)
 
 * only copy the Service account Id from the results after running the above code 
 * Open the big_lake_table.json from 00-scripts-and-config/cloud-shell/big_lake_table.json add the policy tag id (projects/<PROJECT-ID>/locations/<LOCATION>/taxonomies/<POLICY-NUMBER>/policyTags/<POLICY-TAG-ID>) and the bucket name where dataset is stored, then
@@ -243,7 +243,7 @@ A BigLake table called IceCreamSales -
 5. With column 'Discount' tied to the Policy Tag created -'Financial Data'
 6. With column 'Net_Revenue' tied to the Policy Tag created -'Financial Data'
 
-![PICT3](./images/bigquery.png) 
+![PICT3](../images/bigquery.png) 
 
 ### 5.13. Row Access Policies
 Create Row Access Policies, one for each user - rls_user1 and rls_user2 -
