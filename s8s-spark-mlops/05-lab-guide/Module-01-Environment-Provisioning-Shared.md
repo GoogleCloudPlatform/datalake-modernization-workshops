@@ -50,9 +50,13 @@ mkdir gcp-spark-mllib-workshop
 ```
 
 ### 2.2. Clone the workshop git repo
+
 ```
 cd ~/gcp-spark-mllib-workshop
-git clone https://github.com/anagha-google/s8s-spark-mlops.git
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv s8s-spark-mlops/ ~/
+cd ..
 ```
 
 ### 2.3. Navigate to the Terraform provisioning directory
