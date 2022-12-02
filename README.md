@@ -7,8 +7,8 @@ This repository features self-contained, hands-on-labs with detailed and step-by
 
 | # | Use Case | Lab summary | Author |
 | -- | :--- | :--- |:--- |
-| 1. ||||
-| 2. ||||
+| 1. |Admin Use Case| GCP Infrastructure Provisioning via Terraform and Cloud Shell||
+| 2. |Data Engineer Use Case|Running Spark workloads on Dataproc GCE and Serverless Spark to read data from GCS, process it and write out to BigQuery through Dataproc Metastore service||
 | 3. ||||
 
 
