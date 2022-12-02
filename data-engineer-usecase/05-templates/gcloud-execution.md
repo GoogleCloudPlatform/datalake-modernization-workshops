@@ -44,7 +44,7 @@ The datasets used for this project are
 
 ## 2. Solution Diagram
 
-![this is a screenshot](/images/Flow_of_Resources.jpeg)
+![this is a screenshot](../images/Flow_of_Resources.jpeg)
 
 **Model Pipeline**
 
@@ -173,14 +173,14 @@ gs://$BUCKET_CODE/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/kpi
 Navigate to BigQuery Console, and check the **cell_tower_anomaly_detection** dataset. <br>
 Once all jobs execute successfully, two new tables 'YOUR_NAME_kpis_by_cell_tower' and 'YOUR_NAME_kpis_by_customer' will be created:
 
-![this is a screenshot](/images/bq_1.png)
+![this is a screenshot](../images/bq_1.png)
 
 To view the data in these tables -
 
 * Select the table from BigQuery Explorer by navigating 'project_id' **>** 'dataset' **>** 'table_name'
 * Click on the **Preview** button to see the data in the table
 
-![this is a screenshot](/images/bq_preview.png)
+![this is a screenshot](../images/bq_preview.png)
 
 **Note:** If the **Preview** button is not visible, run the below queries to view the data. However, these queries will be charged for the full table scan.
 
@@ -189,7 +189,7 @@ To view the data in these tables -
   SELECT * FROM `YOUR_PROJECT_ID.de_bq_dataset.YOUR_NAME_kpis_by_customer` LIMIT 1000;
 ```
 
-![this is a screenshot](/images/bq_2.png)
+![this is a screenshot](../images/bq_2.png)
 
 ## 6. Logging
 
@@ -198,15 +198,15 @@ To view the data in these tables -
 
 Once you submit the job, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/image6.png)
+![this is a screenshot](../images/image6.png)
 
 #### 6.2 Persistent History Server logs
 
 To view the Persistent History server logs, Navigate to the cluster and open web interfaces and navigate to spark history server.
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 ## Cell Tower Anomaly Detection with Serverless Spark Batch
 
@@ -278,14 +278,14 @@ gs://$BUCKET_CODE/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/kpi
 Navigate to BigQuery Console, and check the **cell_tower_anomaly_detection** dataset. <br>
 Once all batches execute successfully, two new tables 'YOUR_NAME_kpis_by_cell_tower' and 'YOUR_NAME_kpis_by_customer' will be created:
 
-![this is a screenshot](/images/bq_1.png)
+![this is a screenshot](../images/bq_1.png)
 
 To view the data in these tables -
 
 * Select the table from BigQuery Explorer by navigating 'project_id' **>** 'dataset' **>** 'table_name'
 * Click on the **Preview** button to see the data in the table
 
-![this is a screenshot](/images/bq_preview.png)
+![this is a screenshot](../images/bq_preview.png)
 
 **Note:** If the **Preview** button is not visible, run the below queries to view the data. However, these queries will be charged for the full table scan.
 
@@ -294,7 +294,7 @@ To view the data in these tables -
   SELECT * FROM `YOUR_PROJECT_ID.de_bq_dataset.YOUR_NAME_kpis_by_customer` LIMIT 1000;
 ```
 
-![this is a screenshot](/images/bq_2.png)
+![this is a screenshot](../images/bq_2.png)
 
 ## 9. Logging
 
@@ -304,17 +304,17 @@ Logs associated with the application can be found in the logging console under
 **Dataproc > Serverless > Batches > <batch_name>**.
 <br> You can also click on “View Logs” button on the Dataproc batches monitoring page to get to the logging page for the specific Spark job.
 
-![this is a screenshot](/images/image10.png)
+![this is a screenshot](../images/image10.png)
 
-![this is a screenshot](/images/image11.png)
+![this is a screenshot](../images/image11.png)
 
 #### 9.2 Persistent History Server logs
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image12.png)
+![this is a screenshot](../images/image12.png)
 
-![this is a screenshot](/images/image13.png)
+![this is a screenshot](../images/image13.png)
 
 ## 10. Running a Map Reduce wordcount job through Cloud Shell
 
@@ -334,12 +334,12 @@ gcloud dataproc jobs submit hadoop \
 
 Once you submit the job, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/image6.png)
+![this is a screenshot](../images/image6.png)
 
 Once the job completes successfully, you will the see the bucket you chose be populated with your wordcount results.
 
-![this is a screenshot](/images/image4.png)
+![this is a screenshot](../images/image4.png)
 
 On opening each file, we can see the output of the word count job in the form of: \<word\> \<count\> as shown below:
 
-![this is a screenshot](/images/image5.png)
+![this is a screenshot](../images/image5.png)
