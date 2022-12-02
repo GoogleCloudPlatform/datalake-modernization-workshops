@@ -37,10 +37,6 @@ The dataset used for this project is Shakespeare dataset from Bigquery public da
 
 ## 2. Solution Architecture
 
-<kbd>
-<img src= images/Flow_of_Resources.jpeg>
-</kbd>
-
 ![PICT1](../images/Flow_of_Resources.jpeg)
 
 <br>
@@ -65,28 +61,28 @@ The data pipeline involves the following steps: <br>
 
 ![this is a screenshot](../images/composer_2.png)
 
-![this is a screenshot](/images/composer_3.png)
+![this is a screenshot](../images/composer_3.png)
 
 ## 4. Running the job on Dataproc Cluster on GCE
 
 * Navigate to **Composer**>**YOUR_COMPOSER_ENV**>**Open Airflow UI**
 
-![this is a screenshot](/images/composer_5.png)
+![this is a screenshot](../images/composer_5.png)
 
 * Once the Airflow UI opens, navigate to **DAGs** and open your respective DAG
 * Next, trigger your DAG by clicking on the **Trigger DAG** button
 
-![this is a screenshot](/images/composer_6.png)
+![this is a screenshot](../images/composer_6.png)
 
 * Once the DAG is triggered, the DAG can be monitored directly through the Airflow UI as well as the Dataproc>Jobs window
 
-![this is a screenshot](/images/composer_7.png)
+![this is a screenshot](../images/composer_7.png)
 
 ## 5. Viewing the output
 
-![this is a screenshot](/images/op_1c.png)
+![this is a screenshot](../images/op_1c.png)
 
-![this is a screenshot](/images/op_2c.png)
+![this is a screenshot](../images/op_2c.png)
 
 ## 6. Logging
 
@@ -94,38 +90,38 @@ The data pipeline involves the following steps: <br>
 
 * To view the logs of any step of the DAG execution, click on the **<DAG step>**>**Log** button <br>
 
-![this is a screenshot](/images/composer_8.png)
+![this is a screenshot](../images/composer_8.png)
 
 #### 6.2 Persistent History Server logs
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 ## 7. Running the job as a serverless batch on Dataproc
 
 * Navigate to **Composer**>**YOUR_COMPOSER_ENV**>**Open Airflow UI**
 
-![this is a screenshot](/images/composer_5.png)
+![this is a screenshot](../images/composer_5.png)
 
 * Once the Airflow UI opens, navigate to **DAGs** and open your respective DAG
 * Next, trigger your DAG by clicking on the **Trigger DAG** button
 
-![this is a screenshot](/images/composer_6.png)
+![this is a screenshot](../images/composer_6.png)
 
 * Once the DAG is triggered, the DAG can be monitored directly through the Airflow UI as well as the Dataproc>Serverless>Batches window
 
-![this is a screenshot](/images/composer_7.png)
+![this is a screenshot](../images/composer_7.png)
 
 ## 8. Viewing the output
 
 Once the batch completes executing successfully, the output can be viewed in the Dataproc batches UI as shown below:<br>
 
-![this is a screenshot](/images/op_1.png)
+![this is a screenshot](../images/op_1.png)
 
-![this is a screenshot](/images/op_2.png)
+![this is a screenshot](../images/op_2.png)
 
 ## 9. Logging
 
@@ -133,7 +129,7 @@ Once the batch completes executing successfully, the output can be viewed in the
 
 * To view the logs of any step of the DAG execution, click on the **<DAG step>**>**Log** button <br>
 
-![this is a screenshot](/images/composer_8.png)
+![this is a screenshot](../images/composer_8.png)
 
 #### 9.2 Serverless Batch logs
 
@@ -141,14 +137,14 @@ Logs associated with the application can be found in the logging console under
 **Dataproc > Serverless > Batches > <batch_name>**.
 <br> You can also click on “View Logs” button on the Dataproc batches monitoring page to get to the logging page for the specific Spark job.
 
-![this is a screenshot](/images/image10.png)
+![this is a screenshot](../images/image10.png)
 
-![this is a screenshot](/images/image11.png)
+![this is a screenshot](../images/image11.png)
 
 #### 9.3 Persistent History Server logs
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image12.png)
+![this is a screenshot](../images/image12.png)
 
-![this is a screenshot](/images/image13.png)
+![this is a screenshot](../images/image13.png)
