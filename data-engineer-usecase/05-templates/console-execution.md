@@ -43,7 +43,7 @@ The datasets used for this project are
 
 ## 2. Solution Diagram
 
-![this is a screenshot](/images/Flow_of_Resources.jpeg)
+![this is a screenshot](../images/Flow_of_Resources.jpeg)
 
 **Model Pipeline**
 
@@ -76,7 +76,7 @@ Next, fill in the following values in the job creation window :
   **Note:** Press RETURN after each argument <br>
   **Note:** The arguments must be passed in the same order as mentioned as they are extracted in the order they are provided
 
-![this is a screenshot](/images/dtpc.PNG)
+![this is a screenshot](../images/dtpc.PNG)
 
 Once all the details are in, you can submit the job. As the job starts, you can see the execution details and logs on the console.
 
@@ -99,7 +99,7 @@ Next, fill in the following values in the job creation window :
   **Note:** Press RETURN after each argument <br>
   **Note:** The arguments must be passed in the same order as mentioned as they are extracted in the order they are provided
 
-![this is a screenshot](/images/dtpc.PNG)
+![this is a screenshot](../images/dtpc.PNG)
 
 
 Once all the details are in, you can submit the job. As the job starts, you can see the execution details and logs on the console.
@@ -126,7 +126,7 @@ Next, fill in the following values in the job creation window :
   **Note:** The arguments must be passed in the same order as mentioned as they are extracted in the order they are provided
 
 
-![this is a screenshot](/images/dtpc.PNG)
+![this is a screenshot](../images/dtpc.PNG)
 
 Once all the details are in, you can submit the job. As the job starts, you can see the execution details and logs on the console.
 
@@ -153,7 +153,7 @@ Next, fill in the following values in the batch creation window as shown in the 
   **Note:** The arguments must be passed in the same order as mentioned as they are extracted in the order they are provided
 
 
-![this is a screenshot](/images/dtpc.PNG)
+![this is a screenshot](../images/dtpc.PNG)
 
 
 Once all the details are in, you can submit the job. As the job starts, you can see the execution details and logs on the console.
@@ -163,14 +163,14 @@ Once all the details are in, you can submit the job. As the job starts, you can 
 Navigate to BigQuery Console, and check the **cell_tower_anomaly_detection** dataset. <br>
 Once all jobs execute successfully, two new tables 'YOUR_NAME_kpis_by_cell_tower' and 'YOUR_NAME_kpis_by_customer' will be created:
 
-![this is a screenshot](/images/bq_1.png)
+![this is a screenshot](../images/bq_1.png)
 
 To view the data in these tables -
 
 * Select the table from BigQuery Explorer by navigating 'project_id' **>** 'dataset' **>** 'table_name'
 * Click on the **Preview** button to see the data in the table
 
-![this is a screenshot](/images/bq_preview.png)
+![this is a screenshot](../images/bq_preview.png)
 
 **Note:** If the **Preview** button is not visible, run the below queries to view the data. However, these queries will be charged for the full table scan.
 
@@ -180,7 +180,7 @@ To view the data in these tables -
 ```
 **Note:** Edit all occurrences of YOUR_PROJECT_ID and de_bq_dataset to match the values of the variables PROJECT_ID, and BQ_DATASET_NAME respectively
 
-![this is a screenshot](/images/bq_2.png)
+![this is a screenshot](../images/bq_2.png)
 
 ## 5. Logging
 
@@ -188,15 +188,15 @@ To view the data in these tables -
 
 Once you submit the job, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/image6.png)
+![this is a screenshot](../images/image6.png)
 
 #### 5.2 Persistent History Server logs
 
 To view the Persistent History server logs, Navigate to the cluster and open web interfaces and navigate to spark history server.
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 ## 6. Running the cell tower anomaly detection jobs on Serverless Spark
 
@@ -212,7 +212,7 @@ Next, fill in the following values in the batch creation window :
 - **Main Python File** : gs://de-code-and-data-bucket-YOUR_PROJECT_NUMBER/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/curate_customer_data.py
 - **JAR Files** - gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/batch_1_1.png)
+![this is a screenshot](../images/batch_1_1.png)
 
 - **Arguments** : There are 3 arguments to provide here:<br>
     de-code-and-data-bucket-YOUR_PROJECT_NUMBER<br>
@@ -225,13 +225,13 @@ Next, fill in the following values in the batch creation window :
 - **Service Account** : YOUR_UMSA_NAME@YOUR_PROJECT_ID.iam.gserviceaccount.com
 - **Network Configuration** : Select the network and subnetwork with Private Google Access Enabled
 
-![this is a screenshot](/images/batch_4_2.png)
+![this is a screenshot](../images/batch_4_2.png)
 
 - **Metastore Service** : <your_metastore_service>
 
 - **History Server Cluster** : <your_phs_cluster_name>
 
-![this is a screenshot](/images/batch_4_3.png)
+![this is a screenshot](../images/batch_4_3.png)
 
 Once all the details are in, you can submit the batch. As the batch starts, you can see the execution details and logs on the console.
 
@@ -247,7 +247,7 @@ Next, fill in the following values in the batch creation window :
 - **Main Python File** : gs://de-code-and-data-bucket-YOUR_PROJECT_NUMBER/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/curate_telco_performance_data.py
 - **JAR Files** : gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/batch_2_1.png)
+![this is a screenshot](../images/batch_2_1.png)
 
 - **Arguments** : There are 3 arguments to provide here:<br>
     de-code-and-data-bucket-YOUR_PROJECT_NUMBER<br>
@@ -260,13 +260,13 @@ Next, fill in the following values in the batch creation window :
 - **Service Account** : YOUR_UMSA_NAME@YOUR_PROJECT_ID.iam.gserviceaccount.com
 - **Network Configuration** : Select the network and subnetwork with Private Google Access Enabled
 
-![this is a screenshot](/images/batch_4_2.png)
+![this is a screenshot](../images/batch_4_2.png)
 
 - **Metastore Service** : <your_metastore_service>
 
 - **History Server Cluster** : <your_phs_cluster_name>
 
-![this is a screenshot](/images/batch_4_3.png)
+![this is a screenshot](../images/batch_4_3.png)
 
 Once all the details are in, you can submit the batch. As the batch starts, you can see the execution details and logs on the console.
 
@@ -282,7 +282,7 @@ Next, fill in the following values in the batch creation window :
 - **Main Python File** : gs://de-code-and-data-bucket-YOUR_PROJECT_NUMBER/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/kpis_by_customer.py
 - **JAR Files** : gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/batch_3_1.png)
+![this is a screenshot](../images/batch_3_1.png)
 
 - **Arguments** : There are 5 arguments to provide here:<br>
     YOUR_PROJECT_ID<br>                                                                
@@ -298,13 +298,13 @@ Next, fill in the following values in the batch creation window :
 - **Service Account** : YOUR_UMSA_NAME@YOUR_PROJECT_ID.iam.gserviceaccount.com
 - **Network Configuration** : Select the network and subnetwork with Private Google Access Enabled
 
-![this is a screenshot](/images/batch_4_2.png)
+![this is a screenshot](../images/batch_4_2.png)
 
 - **Metastore Service** : <your_metastore_service>
 
 - **History Server Cluster** : <your_phs_cluster_name>
 
-![this is a screenshot](/images/batch_4_3.png)
+![this is a screenshot](../images/batch_4_3.png)
 
 Once all the details are in, you can submit the batch. As the batch starts, you can see the execution details and logs on the console.
 
@@ -320,7 +320,7 @@ Next, fill in the following values in the batch creation window as shown in the 
 - **Main Python File** : gs://de-code-and-data-bucket-YOUR_PROJECT_NUMBER/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/kpis_by_cell_tower.py
 - **JAR Files** : gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/batch_4_1.png)
+![this is a screenshot](../images/batch_4_1.png)
 
 - **Arguments** : There are 5 arguments to provide here:<br>
     YOUR_PROJECT_ID<br>                                                                
@@ -335,13 +335,13 @@ Next, fill in the following values in the batch creation window as shown in the 
 - **Service Account** : YOUR_UMSA_NAME@YOUR_PROJECT_ID.iam.gserviceaccount.com
 - **Network Configuration** : select the network and subnetwork with Private Google Access Enabled
 
-![this is a screenshot](/images/batch_4_2.png)
+![this is a screenshot](../images/batch_4_2.png)
 
 - **Metastore Service** : <your_metastore_service>
 -
 - **History Server Cluster** : <your_phs_cluster_name>
 
-![this is a screenshot](/images/batch_4_3.png)
+![this is a screenshot](../images/batch_4_3.png)
 
 Once all the details are in, you can submit the batch. As the batch starts, you can see the execution details and logs on the console.
 
@@ -350,14 +350,14 @@ Once all the details are in, you can submit the batch. As the batch starts, you 
 Navigate to BigQuery Console, and check the **cell_tower_anomaly_detection** dataset. <br>
 Once all batches complete execution successfully, two new tables 'YOUR_NAME_kpis_by_cell_tower' and 'YOUR_NAME_kpis_by_customer' will be created:
 
-![this is a screenshot](/images/bq_1.png)
+![this is a screenshot](../images/bq_1.png)
 
 To view the data in these tables -
 
 * Select the table from BigQuery Explorer by navigating 'project_id' **>** 'dataset' **>** 'table_name'
 * Click on the **Preview** button to see the data in the table
 
-![this is a screenshot](/images/bq_preview.png)
+![this is a screenshot](../images/bq_preview.png)
 
 **Note:** If the **Preview** button is not visible, run the below queries to view the data. However, these queries will be charged for the full table scan.
 
@@ -367,7 +367,7 @@ To view the data in these tables -
 ```
 **Note:** Edit all occurrences of YOUR_PROJECT_ID and de_bq_dataset to match the values of the variables PROJECT_ID, and BQ_DATASET_NAME respectively
 
-![this is a screenshot](/images/bq_2.png)
+![this is a screenshot](../images/bq_2.png)
 
 ## 8. Logging
 
@@ -377,9 +377,9 @@ Logs associated with the application can be found in the logging console under
 **Dataproc > Serverless > Batches > <batch_name>**.
 <br> You can also click on “View Logs” button on the Dataproc batches monitoring page to get to the logging page for the specific Spark job.
 
-![this is a screenshot](/images/image10.png)
+![this is a screenshot](../images/image10.png)
 
-![this is a screenshot](/images/image11.png)
+![this is a screenshot](../images/image11.png)
 
 ### 8.2 Persistent History Server logs
 
