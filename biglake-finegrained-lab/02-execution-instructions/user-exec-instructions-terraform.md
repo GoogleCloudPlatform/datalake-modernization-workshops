@@ -91,7 +91,13 @@ If you have any questions or if you found any problems with this repository, ple
 
 ### 1.1. Create the environment
 
-- Upload the repository to the Google Cloud Shell instance
+```
+cd ~
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv biglake-finegrained-lab/ ~/
+cd ..
+```
 
 ### 1.2. Navigate to the Cloud Shell provisioning directory
 ```
