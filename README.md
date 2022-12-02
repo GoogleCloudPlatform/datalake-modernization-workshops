@@ -9,7 +9,8 @@ This repository features self-contained, hands-on-labs with detailed and step-by
 | -- | :--- | :--- |:--- |
 | 1. |Admin Use Case| GCP Infrastructure Provisioning via Terraform and Cloud Shell||
 | 2. |Data Engineer Use Case|Running Spark workloads on Dataproc GCE and Serverless Spark to read data from GCS, process it and write out to BigQuery through Dataproc Metastore service||
-| 3. ||||
+| 3. |Data Engineer Use Case|Running Vertex AI Pipelines through Serverless Spark using Vertex AI managed and user-managed notebooks||
+|4.|Big Lake Fine Grained Access Control|Implementing fine-grained access control through BigLake with a minimum viable example of Icecream sales forecasting on a Spark notebook hosted on a personal auth Cloud Dataproc cluster.||
 
 
 
