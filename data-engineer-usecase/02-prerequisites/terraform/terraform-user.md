@@ -46,7 +46,7 @@ Run the following commands in Cloud Shell to clone the repository to your cloud 
 cd ~
 git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
 cd datalake-modernization-workshops/
-mv biglake-finegrained-lab/ ~/
+mv data-engineer-usecase/ ~/
 cd ..
 ```
 
