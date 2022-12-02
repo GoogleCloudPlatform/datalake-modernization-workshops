@@ -159,7 +159,7 @@ The lab consists of the following modules.
         - Using [Cloud shell](03-prerequisites/gcp-prerequisites-cloudshell.md)
 
 2. Accessing the Biglake table data (User Step)
-    - There are 2 ways of setting up the prerequisites:
+    - There are 2 ways of executing the lab:
         - Using [Terraform Scripts](02-execution-instructions/user-exec-instructions-terraform.md)
         - Using [Cloud shell](02-execution-instructions/user-exec-instructions-cloud-shell.md)
             
