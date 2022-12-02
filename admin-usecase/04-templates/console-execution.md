@@ -37,7 +37,7 @@ The dataset used for this project is Shakespeare dataset from Bigquery public da
 ## 2. Solution Architecture
 
 <kbd>
-<img src= images/Flow_of_Resources.jpeg>
+<img src= ../images/Flow_of_Resources.jpeg>
 </kbd>
 
 <br>
