@@ -41,7 +41,7 @@ The dataset used for this project is Shakespeare dataset from Bigquery public da
 <img src= images/Flow_of_Resources.jpeg>
 </kbd>
 
-![PICT1](../..images/Flow_of_Resources.jpeg)
+![PICT1](../../images/Flow_of_Resources.jpeg)
 
 <br>
 
