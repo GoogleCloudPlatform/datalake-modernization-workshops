@@ -5,11 +5,11 @@ This repository features self-contained, hands-on-labs with detailed and step-by
 
 ## Labs
 
-| # | Product feature | Lab summary | Author |
-| -- | :--- | :--- |:--- |
-| 1. ||||
-| 2. ||||
-| 3. ||||
+| # | Use Case | Lab summary | Author |
+| -- |:--- | :--- | :--- |:--- |
+| 1. |||||
+| 2. |||||
+| 3. |||||
 
 
 
