@@ -39,7 +39,7 @@ The datasets used for this project are
 
 ## 2. Solution Diagram
 
-![this is a screenshot](/images/Flow_of_Resources.jpeg)
+![this is a screenshot](../images/Flow_of_Resources.jpeg)
 
 **Model Pipeline**
 
@@ -60,38 +60,38 @@ The model pipeline involves the following steps: <br>
 * Next, navigate to **Environment Configuration**>**DAGs folder URI**
 * Next, upload the DAG files to the GCS bucket corresponding to the **DAGs folder URI**
 
-![this is a screenshot](/images/composer_2.png)
+![this is a screenshot](../images/composer_2.png)
 
-![this is a screenshot](/images/composer_3.png)
+![this is a screenshot](../images/composer_3.png)
 
 ## 4. Execution of Airflow DAG
 
 * Navigate to **Composer**>**YOUR_COMPOSER_ENV**>**Open Airflow UI**
 
-![this is a screenshot](/images/composer_5.png)
+![this is a screenshot](../images/composer_5.png)
 
 * Once the Airflow UI opens, navigate to **DAGs** and open your respective DAG
 * Next, trigger your DAG by clicking on the **Trigger DAG** button
 
-![this is a screenshot](/images/composer_6.png)
+![this is a screenshot](../images/composer_6.png)
 
 * Once the DAG is triggered, the DAG can be monitored directly through the Airflow UI as well as the Dataproc>Serverless>Batches window
 
-![this is a screenshot](/images/composer_7.png)
+![this is a screenshot](../images/composer_7.png)
 
 ## 5. BQ output tables
 
 Navigate to BigQuery Console, and check the **de_bq_dataset** dataset. <br>
 Once the Airflow DAG execution is completed, two new tables 'YOUR_NAME_kpis_by_cell_tower' and 'YOUR_NAME_kpis_by_customer' will be created:
 
-![this is a screenshot](/images/bq_1.png)
+![this is a screenshot](../images/bq_1.png)
 
 To view the data in these tables -
 
 * Select the table from BigQuery Explorer by navigating 'project_id' **>** 'dataset' **>** 'table_name'
 * Click on the **Preview** button to see the data in the table
 
-![this is a screenshot](/images/bq_preview.png)
+![this is a screenshot](../images/bq_preview.png)
 
 **Note:** If the **Preview** button is not visible, run the below queries to view the data. However, these queries will be charged for the full table scan.
 
@@ -100,7 +100,7 @@ To view the data in these tables -
   SELECT * FROM `YOUR_PROJECT_ID.de_bq_dataset.YOUR_NAME_kpis_by_customer` LIMIT 1000;
 ```
 
-![this is a screenshot](/images/bq_2.png)
+![this is a screenshot](../images/bq_2.png)
 
 ## 6. Logging
 
@@ -108,32 +108,32 @@ To view the data in these tables -
 
 * To view the logs of any step of the DAG execution, click on the **<DAG step>**>**Log** button <br>
 
-![this is a screenshot](/images/composer_8.png)
+![this is a screenshot](../images/composer_8.png)
 
 #### 6.2 Dataproc Jobs Logs
 
 Once you submit the job, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/image6.png)
+![this is a screenshot](../images/image6.png)
 
 #### 6.3 Persistent History Server logs
 
 To view the Persistent History server logs, Navigate to the cluster and open web interfaces and navigate to spark history server.
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 #### 6.4 Examine the wordcount output
 
 Once you trigger the DAG, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/Image6.png)
+![this is a screenshot](../images/Image6.png)
 
 Once the job completes successfully, you will the see the bucket you chose be populated with your wordcount results.
 
-![this is a screenshot](/images/image4.png)
+![this is a screenshot](../images/image4.png)
 
 On opening each file, we can see the output of the word count job in the form of: \<word\> \<count\> as shown below:
 
-![this is a screenshot](/images/image5.png)
+![this is a screenshot](../images/image5.png)
