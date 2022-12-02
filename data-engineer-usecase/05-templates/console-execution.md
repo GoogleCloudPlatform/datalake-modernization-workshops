@@ -385,9 +385,9 @@ Logs associated with the application can be found in the logging console under
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image12.png)
+![this is a screenshot](../images/image12.png)
 
-![this is a screenshot](/images/image13.png)
+![this is a screenshot](../images/image13.png)
 
 ## 9. Running a Map Reduce wordcount job through Cloud Console
 
@@ -398,11 +398,11 @@ To create wordcount job follow these steps.
 Under Dataproc > Clusters, locate the cluster you wish to use. <br>
 Next, select the cluster you wish to use.
 
-![this is a screenshot](/images/image1.png)
+![this is a screenshot](../images/image1.png)
 
 You will then see Submit job at the top <br>
 
-![this is a screenshot](/images/image2.png)
+![this is a screenshot](../images/image2.png)
 
 #### 9.2 Fill in the Job Details.
 
@@ -416,7 +416,7 @@ Fill in the following details :
     gs://pub/shakespeare/rose.txt <br>
     gs://de-output-bucket-YOUR_PROJECT_NUMBER/wordcount-YOUR_NAME
 
-![this is a screenshot](/images/image3.png)
+![this is a screenshot](../images/image3.png)
 
 #### 9.3 Submit the job
 
@@ -428,12 +428,12 @@ Once all the details are entered, Click on **Submit**
 
 Once you submit the job, you can see the job run under *Dataproc* > *Jobs* as shown below:
 
-![this is a screenshot](/images/image6.png)
+![this is a screenshot](../images/image6.png)
 
 Once the job completes successfully, you will the see the bucket you chose be populated with your wordcount results.
 
-![this is a screenshot](/images/image4.png)
+![this is a screenshot](../images/image4.png)
 
 On opening each file, we can see the output of the word count job in the form of: \<word\> \<count\> as shown below:
 
-![this is a screenshot](/images/image5.png)
+![this is a screenshot](../images/image5.png)
