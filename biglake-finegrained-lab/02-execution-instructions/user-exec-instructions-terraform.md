@@ -27,17 +27,17 @@ Sales forecasting with Prophet
 5. Running shell script
 
 ### Lab Flow
-![flow](./images/flow.png) 
+![flow](../images/flow.png) 
 
 ### Dataset
 Kaggle dataset for Icecream Sales
 
-![data](./images/data.png) 
+![data](../images/data.png) 
 
 ### Solution Architecture
 This lab features Dataproc Personal Auth Clusters as the Spark infrastructure, and JupyterLab on Dataproc as the notebook infrastructure.
 
-![architecture](./images/architecture.png) 
+![architecture](../images/architecture.png) 
 
 
 **About Cloud Dataproc personal auth clusters:**
@@ -49,7 +49,7 @@ This lab features Dataproc Personal Auth Clusters as the Spark infrastructure, a
 <br>
 So effectively, the architecture is as depicted below-
 
-![architecture-2](./images/architecture-2.png) 
+![architecture-2](../images/architecture-2.png) 
 
 ### Key Products
 1. Cloud IAM - Users, groups, group memberships, roles
@@ -223,7 +223,7 @@ Periodically refreshing credentials for cluster user_id-dataproc-cluster. This w
 <br>
 
 4. Click on the 'JupyterLab' link (not to be confused with Jupyter) and this should bring up a new tab as shown below: <br>
-![PICT4](./images/jupyter1.png)
+![PICT4](../images/jupyter1.png)
 <br>
 
 5. In Jupyter, Click on "File"->New Launcher and then ->Terminal (at bottom of screen under 'Other' 
@@ -267,13 +267,13 @@ This notebook demonstrates finegrained BigLake powered permissions, with a Icecr
 2. Then click on the icon on the right that says 'Python 3' with a circle next to it...
 
 3. A dialog box that says 'Select Kernel' will appear, choose 'PySpark' and hit select
-![PICT5](./images/jupyter6.png)
+![PICT5](../images/jupyter6.png)
 <br>
 
 4. You can now run all cells.  
 * From the 'Run->Run all Cells' menu.   <br>
 * Below cell 13, you should see data only for the 'United States' as shown below:
-![PICT7](./images/jupyter4.png)
+![PICT7](../images/jupyter4.png)
 <br><br>
 
 
