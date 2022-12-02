@@ -70,9 +70,9 @@ gcloud metastore services create $METASTORE_NAME \
 Navigate to the Dataproc Service in your GCP project and click on Metastore 
 Click **+CREATE**>**Composer 2**
 
-![this is a screenshot](/images/meta.png)
-![this is a screenshot](/images/meta01.png)
-![this is a screenshot](/images/meta02.png)
+![this is a screenshot](../images/meta.png)
+![this is a screenshot](../images/meta01.png)
+![this is a screenshot](../images/meta02.png)
 
 Next, fill in the following values in the metastore creation window :
 
@@ -95,5 +95,5 @@ Next, fill in the following values in the metastore creation window :
 
 To view the metastore logs, click the 'View Logs' button on the metastore page and the logs will be shown as below:
 
-![this is a screenshot](/images/meta_logs01.png)
-![this is a screenshot](/images/meta_logs02.png)
+![this is a screenshot](../images/meta_logs01.png)
+![this is a screenshot](../images/meta_logs02.png)
