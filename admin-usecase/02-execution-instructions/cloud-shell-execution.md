@@ -222,7 +222,7 @@ The dataset used for this project is Shakespeare dataset from Bigquery public da
 ## 2. Solution Architecture
 
 <kbd>
-<img src= images/Flow_of_Resources.jpeg>
+<img src= ../images/Flow_of_Resources.jpeg>
 </kbd>
 
 <br>
@@ -254,9 +254,9 @@ gs://$BUCKET_CODE/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_au
 
 Once the job completes executing successfully, the output can be viewed in the Dataproc jobs UI as shown below:<br>
 
-![this is a screenshot](/images/op_1c.png)
+![this is a screenshot](../images/op_1c.png)
 
-![this is a screenshot](/images/op_2c.png)
+![this is a screenshot](../images/op_2c.png)
 
 ## 5. Logging
 
@@ -264,9 +264,9 @@ Once the job completes executing successfully, the output can be viewed in the D
 
 To view the Persistent History server logs, Navigate to the cluster and open web interfaces and navigate to spark history server.
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 
 ## 6. Running the job as a serverless batch on Dataproc
@@ -288,9 +288,9 @@ gs://$BUCKET_CODE/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_au
 
 Once the batch completes executing successfully, the output can be viewed in the Dataproc batches UI as shown below:<br>
 
-![this is a screenshot](/images/op_1.png)
+![this is a screenshot](../images/op_1.png)
 
-![this is a screenshot](/images/op_2.png)
+![this is a screenshot](../images/op_2.png)
 
 ## 8. Logging
 
@@ -300,14 +300,14 @@ Logs associated with the application can be found in the logging console under
 **Dataproc > Serverless > Batches > <batch_name>**.
 <br> You can also click on “View Logs” button on the Dataproc batches monitoring page to get to the logging page for the specific Spark job.
 
-![this is a screenshot](/images/image10.png)
+![this is a screenshot](../images/image10.png)
 
-![this is a screenshot](/images/image11.png)
+![this is a screenshot](../images/image11.png)
 
 #### 8.2 Persistent History Server logs
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image12.png)
+![this is a screenshot](../images/image12.png)
 
-![this is a screenshot](/images/image13.png)
+![this is a screenshot](../images/image13.png)
