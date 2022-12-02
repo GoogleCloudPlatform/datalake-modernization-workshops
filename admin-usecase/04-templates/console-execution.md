@@ -62,7 +62,7 @@ Next, fill in the following values in the job creation window :
 - **Main Python File** : gs://YOUR_CODE_BUCKET/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_autoscaling.py
 - **JAR Files** - gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/dtpc.PNG)
+![this is a screenshot](../images/dtpc.PNG)
 
 Once all the details are in, you can submit the job. As the job starts, you can see the execution details and logs on the console.
 
@@ -70,9 +70,9 @@ Once all the details are in, you can submit the job. As the job starts, you can 
 
 Once the job completes executing successfully, the output can be viewed in the Dataproc jobs UI as shown below:<br>
 
-![this is a screenshot](/images/op_1c.png)
+![this is a screenshot](../images/op_1c.png)
 
-![this is a screenshot](/images/op_2c.png)
+![this is a screenshot](../images/op_2c.png)
 
 ## 5. Logging
 
@@ -80,9 +80,9 @@ Once the job completes executing successfully, the output can be viewed in the D
 
 To view the Persistent History server logs, Navigate to the cluster and open web interfaces and navigate to spark history server.
 
-![this is a screenshot](/images/image30.png)
+![this is a screenshot](../images/image30.png)
 
-![this is a screenshot](/images/image31.png)
+![this is a screenshot](../images/image31.png)
 
 ## 6. Running the job as a serverless batch on Dataproc
 
@@ -96,16 +96,16 @@ Next, fill in the following values in the batch creation window :
 - **Main Python File** : gs://YOUR_CODE_BUCKET/wikipedia-page-view/01-scripts-and-config/pyspark/page_view_autoscaling.py
 - **JAR Files** - gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.22.2.jar
 
-![this is a screenshot](/images/batch_1_1.png)
+![this is a screenshot](../images/batch_1_1.png)
 
 - **Service Account** : UMSA_NAME@PROJECT_ID.iam.gserviceaccount.com
 - **Network Configuration** : Select the network and subnetwork with Private Google Access Enabled
 
-![this is a screenshot](/images/batch_4_2.png)
+![this is a screenshot](../images/batch_4_2.png)
 
 - **History Server Cluster** : <your_phs_cluster_name>
 
-![this is a screenshot](/images/batch_4_3.png)
+![this is a screenshot](../images/batch_4_3.png)
 
 Once all the details are in, you can submit the batch. As the batch starts, you can see the execution details and logs on the console.
 
@@ -113,9 +113,9 @@ Once all the details are in, you can submit the batch. As the batch starts, you 
 
 Once the batch completes executing successfully, the output can be viewed in the Dataproc batches UI as shown below:<br>
 
-![this is a screenshot](/images/op_1.png)
+![this is a screenshot](../images/op_1.png)
 
-![this is a screenshot](/images/op_2.png)
+![this is a screenshot](../images/op_2.png)
 
 ## 8. Logging
 
@@ -125,14 +125,14 @@ Logs associated with the application can be found in the logging console under
 **Dataproc > Serverless > Batches > <batch_name>**.
 <br> You can also click on “View Logs” button on the Dataproc batches monitoring page to get to the logging page for the specific Spark job.
 
-![this is a screenshot](/images/image10.png)
+![this is a screenshot](../images/image10.png)
 
-![this is a screenshot](/images/image11.png)
+![this is a screenshot](../images/image11.png)
 
 ### 8.2 Persistent History Server logs
 
 To view the Persistent History server logs, click the 'View History Server' button on the Dataproc batches monitoring page and the logs will be shown as below:
 
-![this is a screenshot](/images/image12.png)
+![this is a screenshot](../images/image12.png)
 
-![this is a screenshot](/images/image13.png)
+![this is a screenshot](../images/image13.png)
