@@ -63,7 +63,7 @@ The data pipeline involves the following steps: <br>
 * Next, navigate to **Environment Configuration**>**DAGs folder URI**
 * Next, upload the DAG file to the GCS bucket corresponding to the **DAGs folder URI**
 
-![this is a screenshot](/images/composer_2.png)
+![this is a screenshot](../../images/composer_2.png)
 
 ![this is a screenshot](/images/composer_3.png)
 
