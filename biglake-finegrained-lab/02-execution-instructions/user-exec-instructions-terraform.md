@@ -89,7 +89,9 @@ If you have any questions or if you found any problems with this repository, ple
 
 ## Prerequisites
 
-### 1.1. Create the environment
+### 1.1. Uploading scripts and datasets to cloud shell
+
+Run the following commands in Cloud Shell to clone the repository to your cloud shell instance:
 
 ```
 cd ~
