@@ -91,10 +91,18 @@ If you have any questions or if you found any problems with this repository, ple
 ## Prerequisites
 ## 1. Create the environment
 
-### 1.1. Create a directory in Cloud Shell for the workshop
+### 1.1. Uploading scripts and datasets to cloud shell
+
+Run the following commands in Cloud Shell to clone the repository to your cloud shell instance:
+
 ```
 cd ~
+git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
+cd datalake-modernization-workshops/
+mv biglake-finegrained-lab/ ~/
+cd ..
 ```
+
 Next, Upload the repository to cloud shell
 
 ### 1.2. Navigate to the Cloud Shell provisioning directory
