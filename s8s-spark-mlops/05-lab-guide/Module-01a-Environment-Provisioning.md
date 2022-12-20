@@ -58,7 +58,7 @@ mkdir gcp-spark-mllib-workshop
 cd ~/gcp-spark-mllib-workshop
 git clone https://github.com/GoogleCloudPlatform/datalake-modernization-workshops
 cd datalake-modernization-workshops/
-mv s8s-spark-mlops/ ~/
+mv s8s-spark-mlops/ ~/gcp-spark-mllib-workshop/
 cd ..
 ```
 
