@@ -1,0 +1,31 @@
+<property>
+<name>fs.gs.impl</name>
+<value>com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem</value>
+</property>
+
+<property>
+<name>fs.AbstractFileSystem.gs.impl</name>
+<value>com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS</value>
+</property>
+
+<property>
+  <name>fs.gs.project.id</name>
+  <value>___PROJECT_ID___</value>
+  </property>
+<property>
+  <name>google.cloud.auth.type</name>
+  <value>SERVICE_ACCOUNT_JSON_KEYFILE</value>
+ </property>
+<property>
+  <name>fs.gs.auth.service.account.json.keyfile</name>
+  <value>/home/cloudera/local_key.json</value>
+ </property>
+<property>
+<name>fs.gs.working.dir</name>
+<value>/</value>
+</property>
+<property>
+<name>fs.gs.path.encoding</name>
+<value>uri-path</value>
+</property>
+</configuration>
