@@ -49,7 +49,7 @@ The lab consists of the following modules.
 
 [Use CPU Spark to process the data and fetch Spark history Log](02-execution-instructions/cpu-spark.md)
 
-[Use Spark RAPIDS Qualification Tool to exam the history log](02-execution-instructions/rapids-qualificationn-tool.md)
+[Use Spark RAPIDS Qualification Tool to exam the history log](02-execution-instructions/rapids-qualification-tool.md)
 
 [Use Spark RAPIDS to process the data on GPU](02-execution-instructions/gpu-spark.md)
 
