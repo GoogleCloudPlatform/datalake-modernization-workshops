@@ -14,8 +14,7 @@ This repository features self-contained, hands-on-labs with detailed and step-by
 |5.|[Delta Lake Table Format Lab](table-format-lab-delta/README.md)|This lab aims to demystify Delta Lake with Apache Spark on Cloud Dataproc, with a minimum viable sample of the core features of the table format on a Data Lake on Cloud Storage.||
 |6.|[Hive to BigQuery with BigLake migration](hive-to-bq-biglake/README.md)|This workshop contains a step by step demo that shows to migrate a HIVE workload from a on-prem Hadoop deployment based on legacy Cloudera 5.7 distribution to a Google Cloud modern DataLake.||
 |7.|[From Data Analysis with pandas to Data Engineering with SPARK](pandas-spark/README.md)|This workshop contains a step by step demo that shows a typical Data Analytics user journey where data analysts explore and analyze data using python (pandas) and then the data engineer teams formalizes the code using scalable frameworks like SPARK.||
-
-
+|8.|[SPARK ETL with RAPIDS](spark-rapids-churn/README.md)|The repository shows a realistic ETL workflow with dataproc using RAPIDs||
 
 ## Contributing
 See the contributing [instructions](CONTRIBUTING.md) to get started contributing.
