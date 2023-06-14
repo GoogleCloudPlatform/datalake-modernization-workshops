@@ -43,9 +43,9 @@ gcloud dataproc clusters create $CLUSTER_NAME  \
     --worker-accelerator type=nvidia-tesla-t4,count=$NUM_GPUS \
     --worker-machine-type n1-standard-8 \
     --num-worker-local-ssds 1 \
-    --initialization-actions gs://goog-dataproc-initialization-actions-${REGION}/gpu/install_gpu_driver.sh,gs://goog-dataproc-initialization-actions-${REGION}/rapids/rapids.sh \
+    --initialization-actions=gs://goog-dataproc-initialization-actions-${REGION}/spark-rapids/spark-rapids.sh \
     --optional-components=JUPYTER,ZEPPELIN \
-    --metadata gpu-driver-provider="NVIDIA",rapids-runtime="SPARK" \
+    --metadata=rapids-runtime=SPARK \
     --bucket $GCS_BUCKET \
     --subnet=default \
     --enable-component-gateway
