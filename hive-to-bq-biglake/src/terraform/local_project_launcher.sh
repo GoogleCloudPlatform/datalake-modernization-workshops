@@ -35,7 +35,7 @@ echo "##########################################################################
 echo "${LOG_DATE} Launching Terraform ..."
 
 
-"${TERRAFORM_BIN}" init -reconfigure 
+"${TERRAFORM_BIN}" init
 if [ ! "${?}" -eq 0 ]; then
         LOG_DATE=`date`
         echo "${LOG_DATE} Unable to run ${TERRAFORM_BIN} init -reconfigure Exiting ..."
@@ -50,20 +50,6 @@ if [ ! "${?}" -eq 0 ]; then
         
 fi
 
-#Import Golden demo existing resources (see main.tf)
-#1. vpc-main
-
-"${TERRAFORM_BIN}" import \
-    -var="gcp_project_id=${GCP_PROJECT_ID}" \
-    -var="gcp_region=${GCP_REGION}" \
-    -var="gcp_zone=${GCP_ZONE}" \
-    google_compute_network.golden_demo_default_network \
-    projects/${GCP_PROJECT_ID}/global/networks/vpc-main  
-if [ ! "${?}" -eq 0 ]; then
-        LOG_DATE=`date`
-        echo "${LOG_DATE} Unable to run ${TERRAFORM_BIN} validate. Exiting ..."
-        
-fi
 
 "${TERRAFORM_BIN}" apply \
     -var="gcp_project_id=${GCP_PROJECT_ID}" \

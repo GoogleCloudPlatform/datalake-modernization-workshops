@@ -11,10 +11,10 @@
 #........................................................................
 # Purpose: Prepare CDH node for demo
 #........................................................................
-#Remove spaces and remove last line and append GCS connector config
+# Remove spaces and remove last line and append GCS connector config
 sed -i '/^$/d' /etc/hadoop/conf/core-site.xml
 sed -i '$ d' /etc/hadoop/conf/core-site.xml
-#Add connector config
+# Add connector config
 cat core-site-add.xml >>  /etc/hadoop/conf/core-site.xml
-#Restart services
+# Restart services
 /usr/bin/docker-quickstart
