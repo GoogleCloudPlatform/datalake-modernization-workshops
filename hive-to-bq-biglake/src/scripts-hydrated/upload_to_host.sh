@@ -22,8 +22,7 @@ if [ ! "${CLOUD_SHELL}" = true ] ; then
      exit ${ERROR_EXIT}
 fi
 
-
-#Capture input variables
+# Capture input variables
 if [ "${#}" -ne 1 ]; then
     echo "Illegal number of parameters. Exiting ..."
     echo "Usage: ${0}  <gcp_zone>"
@@ -35,6 +34,10 @@ export GCP_ZONE=${1}
 
 NODE_NAME="gce-cdh-5-single-node"
 
+# Create compute engine ssh keys beforehand to allow first 'gcloud compute ssh' command to capture desired output
+if [ ! -f ~/.ssh/google_compute_engine ]; then
+    ssh-keygen -t rsa -f ~/.ssh/google_compute_engine -C google_compute_engine -b 2048 -q -N ""
+fi
 
 LOG_DATE=`date`
 echo "###########################################################################################"
@@ -45,7 +48,8 @@ echo "Stopping container ${CDH_CONTAINER_ID}"
 gcloud compute ssh ${NODE_NAME} --zone=${GCP_ZONE} --command="sudo docker stop ${CDH_CONTAINER_ID}"
 CDH_IMAGE_ID=`gcloud compute ssh ${NODE_NAME} --zone=${GCP_ZONE} --command 'sudo docker images | grep cloudera | awk '\'' { print $3 } '\'' '`
 echo "Starting image ${CDH_IMAGE_ID} ..."
-gcloud compute ssh ${NODE_NAME} --zone=${GCP_ZONE} --command="sudo docker run --hostname=quickstart.cloudera --privileged=true -t -i -d ${CDH_IMAGE_ID} /usr/bin/docker-quickstart"
+gcloud compute ssh ${NODE_NAME} --zone=${GCP_ZONE} --command="sudo docker run --hostname=quickstart.cloudera --privileged=true \
+  --env GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT} -t -i -d ${CDH_IMAGE_ID} /usr/bin/docker-quickstart"
 CDH_CONTAINER_ID=`gcloud compute ssh ${NODE_NAME} --zone=${GCP_ZONE} --command 'sudo docker ps -q | head -1'`
 echo "Image ${CDH_IMAGE_ID} started as ${CDH_CONTAINER_ID}"
 
