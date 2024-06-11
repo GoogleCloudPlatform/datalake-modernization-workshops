@@ -142,7 +142,7 @@ Execute they query and check the results back.
 
 9. For the pySpark part, create a new file on Cloud Shell and introduce some minor adjustments on the original code:
 
-```console
+```python
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, avg, sum, hour, countDistinct, date_format
