@@ -28,9 +28,11 @@ echo "Uploading core-site-add.xml ..."
 sudo docker cp core-site-add.xml ${CDH_CONTAINER_ID}:/home/cloudera/core-site-add.xml
 echo "Uploading prepare_node.sh ..."
 sudo docker cp prepare_node.sh ${CDH_CONTAINER_ID}:/home/cloudera/prepare_node.sh
-echo "Uploading SQL files ..."
+echo "Uploading SQL/pySPark files ..."
 sudo docker cp populate_hive.sql ${CDH_CONTAINER_ID}:/home/cloudera/populate_hive.sql
 sudo docker cp sample_query_01.sql ${CDH_CONTAINER_ID}:/home/cloudera/sample_query_01.sql
 sudo docker cp sample_query_02.sql ${CDH_CONTAINER_ID}:/home/cloudera/sample_query_02.sql
+sudo docker cp delivery_data_analysis.py ${CDH_CONTAINER_ID}:/home/cloudera/delivery_data_analysis.py
+sudo docker cp output_table.sql ${CDH_CONTAINER_ID}:/home/cloudera/output_table.sql
 echo "[OK]"
 
