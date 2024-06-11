@@ -75,7 +75,19 @@ hive -f sample_query_02.sql
 
 ```
 
-3. Determine parquet files to copy and double check HDFS replication factor:
+3. Launch a pySpark process:
+
+```console
+# Inspect file contents
+cat delivery_data_analysis.py
+spark-submit delivery_data_analysis.py
+# Create table with output
+hive -f output_table.sql
+
+```
+
+
+4. Determine parquet files to copy and double check HDFS replication factor:
 
 ```console
 export DATABASE_NAME=google
@@ -85,7 +97,7 @@ hadoop fs -ls -h ${FILES_LOCATION}
 
 ```
 
-4. Confirm GCS bucket visibility and copy data across:
+5. Confirm GCS bucket visibility and copy data across:
 
 ```console
 export BUCKET_NAME=hive_stage-${GOOGLE_CLOUD_PROJECT} 
@@ -94,7 +106,7 @@ hadoop distcp -overwrite  -delete ${FILES_LOCATION}/* gs://${BUCKET_NAME}/produc
 
 ```
 
-5. Go back to Cloud Shell and confirm data is copied in the GCS bucket:
+6. Go back to Cloud Shell and confirm data is copied in the GCS bucket:
 
 ```console
 export BUCKET_NAME=hive_stage-${GOOGLE_CLOUD_PROJECT} 
@@ -102,7 +114,7 @@ gcloud storage ls -R gs://${BUCKET_NAME}
 
 ```
 
-6. Navigate to the BigQuery Console and execute the following, replacing `<YOUR_PROJECT_ID>` accordingly.
+7. Navigate to the BigQuery Console and execute the following, replacing `<YOUR_PROJECT_ID>` accordingly.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS google;
@@ -114,7 +126,7 @@ CREATE OR REPLACE EXTERNAL TABLE `google.product_deliveries_hive`
    uris = ['gs://hive_stage-<YOUR_PROJECT_ID>/product_deliveries_hive/*']);
 ```
 
-7. Finally, lets translate online one of the HIVE queries from `HiveQL` to the BigQuery SQL dialect: `GoogleSQL`, open sourced as [zetaSQL](https://github.com/google/zetasql). In a new BigQuery SQL workspace tab, click on `Enable SQL Translation` under the `More` menu.
+8. Finally, lets translate online one of the HIVE queries from `HiveQL` to the BigQuery SQL dialect: `GoogleSQL`, open sourced as [zetaSQL](https://github.com/google/zetasql). In a new BigQuery SQL workspace tab, click on `Enable SQL Translation` under the `More` menu.
 
 ![Enable SQL translation](assets/02.png)
 
@@ -127,3 +139,59 @@ Finally copy the `HiveQL`, it will be automatically translated:
 ![Tanslation](assets/04.png)
 
 Execute they query and check the results back.
+
+9. For the pySpark part, create a new file on Cloud Shell and introduce some minor adjustments on the original code:
+
+```console
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, avg, sum, hour, countDistinct, date_format
+from pyspark.sql.types import StructType, StructField, TimestampType, DoubleType, IntegerType
+
+spark = SparkSession.builder.appName("BigQueryDeliveryAnalysis").getOrCreate()
+
+schema = StructType(
+    [
+        StructField("delivery_time", TimestampType(), True),
+        StructField("timestamp", TimestampType(), True),
+        StructField("distance", DoubleType(), True),
+        StructField("distribution_center_id", IntegerType(), True),
+        StructField("product_id", IntegerType(), True),
+        StructField("quantity_to_delivery", IntegerType(), True),
+        StructField("delivery_cost", IntegerType(), True),
+    ]
+)
+
+df = spark.read.format("bigquery") \
+    .option("project", "PROJECT_ID") \
+    .option("dataset", "google") \
+    .option("table", "product_deliveries_hive") \
+    .load()
+
+df_hourly = (
+    df.withColumn("delivery_hour", date_format(col("delivery_time"), "yyyy-MM-dd HH"))
+    .groupBy("delivery_hour")
+    .agg(
+        countDistinct("delivery_time").alias("num_deliveries"),
+        countDistinct("product_id").alias("unique_products"),
+    )
+)
+
+df_hourly.show()
+
+df_hourly.write.format("bigquery") \
+    .option("writeMethod", "direct") \
+    .option("project", "PROJECT_ID") \
+    .option("dataset", "google") \
+    .option("table", "hourly_deliveries") \
+    .mode("overwrite") \
+    .save()
+
+```
+
+10. Launch the process using Dataproc Serverless
+
+```console
+gcloud dataproc batches submit pyspark FILE_NAME.py --deps-bucket=gs://hive_stage-${${GOOGLE_CLOUD_PROJECT}} --region=${REGION} --subnet=gce-snet --version=2.2
+
+```
