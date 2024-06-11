@@ -8,6 +8,7 @@ In detail the demo shows:
 1. The use of the HDFS - GCS connector on a Cloudera deployment to easily move data from HDFS to GCS
 2. How to migrate HIVE tables to Google Data Platform BigLake tables
 3. How to migrate HQL queries to BigQuery SQL
+4. How to migrate pySpark code to Dataproc Serverless
 
 ## Architecture
 
@@ -28,9 +29,9 @@ ZONE=us-central1-a
 
 This repository provision several GCP components:
 
-* A VPC `vpc-main` and subnet `gce-subnet` 
+* A VPC `vpc-main` and subnet `gce-subnet`
 * A Google Compute Engine VM `gce-cdh-5-single-node` with a Cloudera image that simulates a Cloudera (single-node) deployment
-* A GCS bucket `hive_stage` 
+* A GCS bucket `hive_stage`
 
 To start the provisioning:
 
@@ -85,7 +86,6 @@ spark-submit delivery_data_analysis.py
 hive -f output_table.sql
 
 ```
-
 
 4. Determine parquet files to copy and double check HDFS replication factor:
 
@@ -161,13 +161,13 @@ schema = StructType(
         StructField("delivery_cost", IntegerType(), True),
     ]
 )
-
+#This reads from BQ Storage insted of HDFS
 df = spark.read.format("bigquery") \
     .option("project", "PROJECT_ID") \
     .option("dataset", "google") \
     .option("table", "product_deliveries_hive") \
     .load()
-
+#Main logic remains unchanged
 df_hourly = (
     df.withColumn("delivery_hour", date_format(col("delivery_time"), "yyyy-MM-dd HH"))
     .groupBy("delivery_hour")
@@ -178,7 +178,7 @@ df_hourly = (
 )
 
 df_hourly.show()
-
+#This writes from BQ Storage insted of HDFS
 df_hourly.write.format("bigquery") \
     .option("writeMethod", "direct") \
     .option("project", "PROJECT_ID") \
@@ -191,7 +191,9 @@ df_hourly.write.format("bigquery") \
 
 10. Launch the process using Dataproc Serverless
 
+On Cloud Shell, execute:
+
 ```console
-gcloud dataproc batches submit pyspark FILE_NAME.py --deps-bucket=gs://hive_stage-${${GOOGLE_CLOUD_PROJECT}} --region=${REGION} --subnet=gce-snet --version=2.2
+gcloud dataproc batches submit pyspark FILE_NAME.py --deps-bucket=gs://hive_stage-${GOOGLE_CLOUD_PROJECT} --region=${REGION} --subnet=gce-snet --version=2.2
 
 ```
