@@ -2,6 +2,9 @@
 
 This repo hosts minimum viable self-contained, end-to-end solutions that showcase Spark on GCP and its integration with other GCP services. They are intended to demystify our products and their integration.
 
+Note: Needs minor modification - this was copied from the git repo of Anagha Khanolkar - anagha-google alias.
+Change git clone command referncing "anagha-google" with GoogleCloudPlatform/datalake-modernization-workshops
+
 | # | About | Tags | 
 | -- | :--- | :--- |   
 | [01](1-dataproc-serverless-with-terraform) |  Orchestration of Spark jobs on Dataproc Serverless with Airflow on Cloud Composer 2 | #Spark-On-Dataproc-Serverless #Spark #Airflow #Composer |
