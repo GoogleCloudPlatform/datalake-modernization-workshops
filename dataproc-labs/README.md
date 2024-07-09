@@ -25,9 +25,10 @@ This repo hosts minimum viable self-contained, end-to-end solutions that showcas
 ## Credits
 | # | Google Cloud Collaborators | Contribution  | 
 | -- | :--- | :--- |
-| 1. | Anagha Khanolkar | Author of all labs - vision, architecture, design, diagrams, and source code |
+| 1. | Anagha Khanolkar | Author of all labs as of July 9, 2024 - vision, architecture, design, diagrams, and source code |
 | 2. | Rick (Rugui) Chen | (Google Kubernetes Specialist) Support for GKE aspects for the lab on Dataproc on GKE |
 | 3. | Dagang Wei | (Google Engineering) Dataproc image support for Apache Hudi on GCP |
 | 4. | Nvidia | Dataproc with GPUs - base example & tuning |
+| 5. | Jay O'Leary | Collaborator |
 
 
