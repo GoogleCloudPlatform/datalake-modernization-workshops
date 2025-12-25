@@ -58,7 +58,7 @@ METASTORE_NAME=<your_dataproc_metastore_name>
 To create a bucket which will be used as a staging bucket to store cluster job dependencies, job driver output, and cluster config files, run the following command in cloud shell:<br>
 
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$DP_CLUSTER_STAGING_BUCKET
+gcloud storage buckets create gs://$DP_CLUSTER_STAGING_BUCKET --project $PROJECT_ID --default-storage-class STANDARD --location $REGION --uniform-bucket-level-access
 ```
 
 ## 3. Create a Dataproc Cluster on GCE

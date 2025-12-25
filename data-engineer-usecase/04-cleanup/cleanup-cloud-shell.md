@@ -79,9 +79,9 @@ Follow the commands to delete the following buckets
 3. Bucket attached to PHS cluster as staging bucket
 
 ```
-gsutil rm -r gs://$CODE_AND_DATA_BUCKET_NAME
-gsutil rm -r gs://$OUTPUT_BUCKET_NAME
-gsutil rm -r gs://$PHS_CLUSTER_STAGING_BUCKET_NAME
+gcloud storage rm --recursive gs://$CODE_AND_DATA_BUCKET_NAME
+gcloud storage rm --recursive gs://$OUTPUT_BUCKET_NAME
+gcloud storage rm --recursive gs://$PHS_CLUSTER_STAGING_BUCKET_NAME
 ```
 
 ## 5. Delete Composer

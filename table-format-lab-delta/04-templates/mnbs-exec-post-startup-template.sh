@@ -19,5 +19,5 @@
 # (Managed notebook server)
 #........................................................................
 
-gsutil cp gs://dll-code-bucket-YOUR_PROJECT_NBR-YOUR_ACCOUNT_NAME/*.ipynb /home/jupyter/ 
+gcloud storage cp gs://dll-code-bucket-YOUR_PROJECT_NBR-YOUR_ACCOUNT_NAME/*.ipynb /home/jupyter/ 
 chown jupyter:jupyter /home/jupyter/* 

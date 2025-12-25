@@ -56,7 +56,7 @@ SUBNET=<your_subnet_name>
 To create a bucket which will be used as a staging bucket for the Persistent History Server, run the following command in cloud shell:<br>
 
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$BUCKET_PHS
+gcloud storage buckets create gs://$BUCKET_PHS --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
 ```
 
 ## 3. Create a Dataproc PHS cluster
