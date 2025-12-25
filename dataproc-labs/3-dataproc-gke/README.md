@@ -340,7 +340,7 @@ Docs: https://cloud.google.com/dataproc/docs/concepts/jobs/history-server<br>
 
 Run the command below to provision-
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
+gcloud storage buckets create $PERSISTENT_HISTORY_SERVER_BUCKET_FQN --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
     --single-node \

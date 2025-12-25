@@ -232,14 +232,14 @@ PROJECT_NBR=`gcloud projects describe $PROJECT_ID | grep projectNumber | cut -d'
 
 Run this command in Cloud Shell-
 ```
-gsutil ls -r gs://dpgce_data_and_code_bucket-${PROJECT_NBR}/scripts
+gcloud storage ls --recursive gs://dpgce_data_and_code_bucket-${PROJECT_NBR}/scripts
 ```
 
 ### 4.2. GCS bucket for data
 
 Run this command in Cloud Shell-
 ```
-gsutil ls -r gs://dpgce_data_and_code_bucket-${PROJECT_NBR}/datasets
+gcloud storage ls --recursive gs://dpgce_data_and_code_bucket-${PROJECT_NBR}/datasets
 ```
 
 <br>
@@ -501,7 +501,7 @@ root
 #### 5.1.5. Review the results in Cloud Storage
  
  ```
- gsutil ls -r gs://$CODE_AND_DATA_BUCKET/output_data/customer_augmented
+ gcloud storage ls --recursive gs://$CODE_AND_DATA_BUCKET/output_data/customer_augmented
 
  ```
  
@@ -708,7 +708,7 @@ only showing top 20 rows
 
 #### 5.2.4. List the results in the GCS bucket
 ```
-gsutil ls -r gs://$CODE_AND_DATA_BUCKET/output_data/telco_performance_augmented
+gcloud storage ls --recursive gs://$CODE_AND_DATA_BUCKET/output_data/telco_performance_augmented
 ```
 The author's output-
 ```
@@ -845,7 +845,7 @@ Note the defect count which is a netric derived that indicates issues with the c
 
 #### 5.3.5. List the results in the GCS bucket
 ```
-gsutil ls -r gs://$CODE_AND_DATA_BUCKET/output_data/kpis_by_customer
+gcloud storage ls --recursive gs://$CODE_AND_DATA_BUCKET/output_data/kpis_by_customer
 ```
 The author's output-
 ```
@@ -1022,7 +1022,7 @@ A metric has been added called "Maintenance_Required" to reflect defects beyond 
 
 #### 5.4.5. List the results in the GCS bucket-
 ```
-gsutil ls -r gs://$CODE_AND_DATA_BUCKET/output_data/kpis_by_cell_tower
+gcloud storage ls --recursive gs://$CODE_AND_DATA_BUCKET/output_data/kpis_by_cell_tower
 ```
 The author's output-
 ```
