@@ -351,7 +351,7 @@ These buckets are for clusters to store intermediate data and other operational 
 
 Run the command below to provision-
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $SPARK_BUCKET_FQN
+gcloud storage buckets create $SPARK_BUCKET_FQN --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 ```
 
 <br><br>
@@ -366,7 +366,7 @@ Docs: https://cloud.google.com/dataproc/docs/concepts/jobs/history-server<br>
 
 Run the command below to provision-
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on $PERSISTENT_HISTORY_SERVER_BUCKET_FQN
+gcloud storage buckets create $PERSISTENT_HISTORY_SERVER_BUCKET_FQN --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 gcloud dataproc clusters create $PERSISTENT_HISTORY_SERVER_NM \
     --single-node \
@@ -401,4 +401,3 @@ gcloud metastore services create $DATAPROC_METASTORE_SERVICE_NM \
 <br><br>
 
 This takes about 30 minutes to create.
-
