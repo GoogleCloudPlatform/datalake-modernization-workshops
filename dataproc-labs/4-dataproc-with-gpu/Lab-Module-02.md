@@ -154,7 +154,7 @@ PROJECT_ID=`gcloud config list --format "value(core.project)" 2>/dev/null`
 PROJECT_NBR=`gcloud projects describe $PROJECT_ID | grep projectNumber | cut -d':' -f2 |  tr -d "'" | xargs`
 OUTPUT_PREFIX="gs://data_bucket-$PROJECT_NBR/churn/output/cpu-based-analytics"
 
-gsutil ls -r $OUTPUT_PREFIX
+gcloud storage ls --recursive $OUTPUT_PREFIX
 ```
 
 ![README](./images/m2-15.png)   
@@ -567,8 +567,8 @@ In the Dataproc UI, click on clusters->on the cluster->web interfaces tab->Spark
 
 Paste in Cloud Shell-
 ```
-gsutil ls -r $OUTPUT_PREFIX
-gsutil du -s -h -a $OUTPUT_PREFIX
+gcloud storage ls --recursive $OUTPUT_PREFIX
+gcloud storage du --summarize --readable-sizes --all-versions $OUTPUT_PREFIX
 ```
 
 ![README](./images/m2-20.png)   
