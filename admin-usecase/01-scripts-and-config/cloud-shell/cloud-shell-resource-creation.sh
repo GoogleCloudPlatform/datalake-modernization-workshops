@@ -172,13 +172,13 @@ gcloud compute firewall-rules create $FIREWALL_NM \
 
 # 5. Storage bucket creation
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$GCS_BUCKET_NM
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$PHS_BUCKET_NM
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$DP_GCE_BUCKET_NM
+gcloud storage buckets create gs://$GCS_BUCKET_NM --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
+gcloud storage buckets create gs://$PHS_BUCKET_NM --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
+gcloud storage buckets create gs://$DP_GCE_BUCKET_NM --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
 
 #6. Copy code file into GCS bucket
 
-gsutil cp ../pyspark/page_view_autoscaling.py gs://$GCS_BUCKET_NM/wikipedia-page-view/01-scripts-and-config/pyspark/
+gcloud storage cp ../pyspark/page_view_autoscaling.py gs://$GCS_BUCKET_NM/wikipedia-page-view/01-scripts-and-config/pyspark/
 
 # 7. PHS creation
 

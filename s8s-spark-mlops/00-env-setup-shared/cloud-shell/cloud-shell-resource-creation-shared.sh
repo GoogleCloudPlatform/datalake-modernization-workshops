@@ -39,59 +39,59 @@ SUBNET_NM=<your-subnet-name-provided-by-admin>
 
 # 1. Create Storage bucket
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_DATA_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_CODE_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_NOTEBOOK_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_MODEL_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_METRICS_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_PIPELINE_BUCKET
+gcloud storage buckets create gs://$S8S_DATA_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_CODE_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_NOTEBOOK_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_MODEL_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_METRICS_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_PIPELINE_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # 2. Customize scripts and notebooks
 
-gsutil cp ../../04-templates/umnbs-exec-post-startup.sh ../../02-scripts/bash/ && sed -i s/PROJECT_NBR/$PROJECT_NBR/g ../../02-scripts/bash/umnbs-exec-post-startup.sh && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/bash/umnbs-exec-post-startup.sh
+gcloud storage cp ../../04-templates/umnbs-exec-post-startup.sh ../../02-scripts/bash/ && sed -i s/PROJECT_NBR/$PROJECT_NBR/g ../../02-scripts/bash/umnbs-exec-post-startup.sh && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/bash/umnbs-exec-post-startup.sh
 
-gsutil cp ../../04-templates/mnbs-exec-post-startup.sh ../../02-scripts/bash/ && sed -i s/PROJECT_NBR/$PROJECT_NBR/g ../../02-scripts/bash/mnbs-exec-post-startup.sh && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/bash/mnbs-exec-post-startup.sh
+gcloud storage cp ../../04-templates/mnbs-exec-post-startup.sh ../../02-scripts/bash/ && sed -i s/PROJECT_NBR/$PROJECT_NBR/g ../../02-scripts/bash/mnbs-exec-post-startup.sh && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/bash/mnbs-exec-post-startup.sh
 
-gsutil cp ../../04-templates/preprocessing.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/preprocessing.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/preprocessing.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/preprocessing.ipynb
+gcloud storage cp ../../04-templates/preprocessing.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/preprocessing.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/preprocessing.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/preprocessing.ipynb
 
-gsutil cp ../../04-templates/model_training.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/model_training.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/model_training.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/model_training.ipynb
+gcloud storage cp ../../04-templates/model_training.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/model_training.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/model_training.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/model_training.ipynb
 
-gsutil cp ../../04-templates/hyperparameter_tuning.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb
+gcloud storage cp ../../04-templates/hyperparameter_tuning.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/hyperparameter_tuning.ipynb
 
-gsutil cp ../../04-templates/batch_scoring.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/batch_scoring.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/batch_scoring.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/batch_scoring.ipynb
+gcloud storage cp ../../04-templates/batch_scoring.ipynb ../../03-notebooks/pyspark/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../03-notebooks/pyspark/batch_scoring.ipynb && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../03-notebooks/pyspark/batch_scoring.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/pyspark/batch_scoring.ipynb
 
-gsutil cp ../../04-templates/customer_churn_training_pipeline.ipynb ../../03-notebooks/vai-pipelines/ && sed -i s/YOUR_GCP_LOCATION/$LOCATION/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb && sed -i s/YOUR_SPARK_CONTAINER_IMAGE_TAG/$SPARK_CONTAINER_IMG_TAG/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb
+gcloud storage cp ../../04-templates/customer_churn_training_pipeline.ipynb ../../03-notebooks/vai-pipelines/ && sed -i s/YOUR_GCP_LOCATION/$LOCATION/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb && sed -i s/YOUR_SPARK_CONTAINER_IMAGE_TAG/$SPARK_CONTAINER_IMG_TAG/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb && sed -i s/USER_ID/$USER_ID/g ../../03-notebooks/vai-pipelines/customer_churn_training_pipeline.ipynb
 
-gsutil cp ../../04-templates/pipeline.py ../../02-scripts/airflow/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/airflow/pipeline.py
+gcloud storage cp ../../04-templates/pipeline.py ../../02-scripts/airflow/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/airflow/pipeline.py
 
-gsutil cp ../../04-templates/batch_scoring.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/batch_scoring.py
+gcloud storage cp ../../04-templates/batch_scoring.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/batch_scoring.py
 
-gsutil cp ../../04-templates/hyperparameter_tuning.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/hyperparameter_tuning.py
+gcloud storage cp ../../04-templates/hyperparameter_tuning.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/hyperparameter_tuning.py
 
-gsutil cp ../../04-templates/model_training.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/model_training.py
+gcloud storage cp ../../04-templates/model_training.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/model_training.py
 
-gsutil cp ../../04-templates/preprocessing.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/preprocessing.py
+gcloud storage cp ../../04-templates/preprocessing.py ../../02-scripts/pyspark/ && sed -i s/USER_ID/$USER_ID/g ../../02-scripts/pyspark/preprocessing.py
 
-gsutil cp ../../04-templates/Module-01-Environment-Provisioning-Shared.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-01-Environment-Provisioning-Shared.md
+gcloud storage cp ../../04-templates/Module-01-Environment-Provisioning-Shared.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-01-Environment-Provisioning-Shared.md
 
-gsutil cp ../../04-templates/Module-03-Author-ML-Experiments-With-Spark-Notebooks.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-03-Author-ML-Experiments-With-Spark-Notebooks.md
+gcloud storage cp ../../04-templates/Module-03-Author-ML-Experiments-With-Spark-Notebooks.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-03-Author-ML-Experiments-With-Spark-Notebooks.md
 
-gsutil cp ../../04-templates/Module-04-Author-ML-PySpark-Scripts.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-04-Author-ML-PySpark-Scripts.md
+gcloud storage cp ../../04-templates/Module-04-Author-ML-PySpark-Scripts.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-04-Author-ML-PySpark-Scripts.md
 
-gsutil cp ../../04-templates/Module-08-Orchestrate-Batch-Scoring.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-08-Orchestrate-Batch-Scoring.md
+gcloud storage cp ../../04-templates/Module-08-Orchestrate-Batch-Scoring.md ../../05-lab-guide/ && sed -i s/USER_ID/$USER_ID/g ../../05-lab-guide/Module-08-Orchestrate-Batch-Scoring.md
 
 mkdir ../../05-pipelines
-gsutil cp ../../04-templates/customer_churn_vai_pipeline_template.json ../../05-pipelines/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/YOUR_GCP_LOCATION/$LOCATION/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/USER_ID/$USER_ID/g ../../05-pipelines/customer_churn_vai_pipeline_template.json
+gcloud storage cp ../../04-templates/customer_churn_vai_pipeline_template.json ../../05-pipelines/ && sed -i s/YOUR_PROJECT_NBR/$PROJECT_NBR/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/YOUR_PROJECT_ID/$PROJECT_ID/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/YOUR_GCP_LOCATION/$LOCATION/g ../../05-pipelines/customer_churn_vai_pipeline_template.json && sed -i s/USER_ID/$USER_ID/g ../../05-pipelines/customer_churn_vai_pipeline_template.json
 
 # 3. Copy of datasets, scripts and notebooks to buckets
 
-gsutil cp -r ../../01-datasets/* gs://$S8S_DATA_BUCKET
+gcloud storage cp --recursive ../../01-datasets/* gs://$S8S_DATA_BUCKET
 
-gsutil cp -r ../../02-scripts/* gs://$S8S_CODE_BUCKET
+gcloud storage cp --recursive ../../02-scripts/* gs://$S8S_CODE_BUCKET
 
-gsutil cp -r ../../03-notebooks/* gs://$S8S_NOTEBOOK_BUCKET
+gcloud storage cp --recursive ../../03-notebooks/* gs://$S8S_NOTEBOOK_BUCKET
 
-gsutil cp -r ../../05-pipelines/* gs://$S8S_PIPELINE_BUCKET
+gcloud storage cp --recursive ../../05-pipelines/* gs://$S8S_PIPELINE_BUCKET
 
 # 4. BigQuery dataset creation
 
@@ -120,12 +120,12 @@ gcloud notebooks runtimes create $MNB_SERVER_NM \
 
 # 7. Upload Airflow DAG to Composer DAG bucket
 
-gsutil cp ../../02-scripts/airflow/pipeline.py gs://$COMPOSER_BUCKET/dags/$USER_ID-pipeline.py
+gcloud storage cp ../../02-scripts/airflow/pipeline.py gs://$COMPOSER_BUCKET/dags/$USER_ID-pipeline.py
 
 # 8. Deploy Google Cloud Function to execute VAI pipeline for model training
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION_MULTI -b on gs://$S8S_FUNCTIONS_BUCKET
-gsutil cp ../../02-scripts/cloud-functions/function-source.zip gs://$S8S_FUNCTIONS_BUCKET
+gcloud storage buckets create gs://$S8S_FUNCTIONS_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION_MULTI --uniform-bucket-level-access
+gcloud storage cp ../../02-scripts/cloud-functions/function-source.zip gs://$S8S_FUNCTIONS_BUCKET
 
 gcloud functions deploy $USER_ID-mlops-vai-pipeline-executor-func \
 --trigger-location=$LOCATION \

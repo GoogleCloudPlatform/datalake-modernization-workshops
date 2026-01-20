@@ -182,7 +182,7 @@ gcloud services vpc-peerings connect \
     --project=$PROJECT_ID
 
 # 3a Creating of staging bucket for phs cluster:
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://${SPHS_BUCKET_NM}
+gcloud storage buckets create gs://${SPHS_BUCKET_NM} --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # 3b Creating of phs cluster:
 gcloud dataproc clusters create dll-sphs-${PROJECT_NBR} \

@@ -135,18 +135,18 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 
 # 8. Create a Dataproc cluster bucket\
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://dataproc-bucket-${PROJECT_NBR}
+gcloud storage buckets create gs://dataproc-bucket-${PROJECT_NBR} --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # 9. Storage admin permissions granting to the Dataproc (common) bucket
 
-gsutil iam ch user:${RLS_USERNAME1}:admin gs://dataproc-bucket-${PROJECT_NBR}
-gsutil iam ch user:${RLS_USERNAME2}:admin gs://dataproc-bucket-${PROJECT_NBR}
-gsutil iam ch user:${CLS_USERNAME}:admin gs://dataproc-bucket-${PROJECT_NBR}
+gcloud storage buckets add-iam-policy-binding gs://dataproc-bucket-${PROJECT_NBR} --member=user:${RLS_USERNAME1} --role=admin
+gcloud storage buckets add-iam-policy-binding gs://dataproc-bucket-${PROJECT_NBR} --member=user:${RLS_USERNAME2} --role=admin
+gcloud storage buckets add-iam-policy-binding gs://dataproc-bucket-${PROJECT_NBR} --member=user:${CLS_USERNAME} --role=admin
 
 # 10. Adding icecreamsales dataset and notebook in to Dataproc (common) bucket
 
-gsutil cp ../../01-datasets/IceCreamSales.csv gs://dataproc-bucket-${PROJECT_NBR}
-gsutil cp ../notebook/IceCream.ipynb gs://dataproc-bucket-${PROJECT_NBR}/notebooks/jupyter/
+gcloud storage cp ../../01-datasets/IceCreamSales.csv gs://dataproc-bucket-${PROJECT_NBR}
+gcloud storage cp ../notebook/IceCream.ipynb gs://dataproc-bucket-${PROJECT_NBR}/notebooks/jupyter/
 
 # 11. Dataproc Worker role granting to the compute engine default service account
 

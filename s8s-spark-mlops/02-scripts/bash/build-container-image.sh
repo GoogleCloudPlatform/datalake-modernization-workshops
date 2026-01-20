@@ -163,7 +163,7 @@ echo "Completed Dockerfile creation"
 
 # Download dependencies to be baked into image
 cd $LOCAL_SCRATCH_DIR
-gsutil cp $BQ_CONNECTOR_JAR_URI .
+gcloud storage cp $BQ_CONNECTOR_JAR_URI .
 wget -P . https://repo.anaconda.com/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh
 echo "Completed downloading dependencies"
 
@@ -177,4 +177,3 @@ echo "Completed docker image build"
 # Push to GCR
 docker push $DOCKER_IMAGE_FQN
 echo "Completed docker image push to GCR"
-
