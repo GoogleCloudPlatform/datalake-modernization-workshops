@@ -226,8 +226,8 @@ gcloud compute firewall-rules create allow-intra-snet-ingress-to-any \
 
 # 9. Create Storage bucket
 
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_SPARK_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://$S8S_SPARK_SPHS_BUCKET
+gcloud storage buckets create gs://$S8S_SPARK_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
+gcloud storage buckets create gs://$S8S_SPARK_SPHS_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # 10. PHS creation
 

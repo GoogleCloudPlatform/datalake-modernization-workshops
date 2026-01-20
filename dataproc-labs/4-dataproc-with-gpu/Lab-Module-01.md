@@ -251,7 +251,7 @@ PROJECT_ID=`gcloud config list --format "value(core.project)" 2>/dev/null`
 PROJECT_NBR=`gcloud projects describe $PROJECT_ID | grep projectNumber | cut -d':' -f2 |  tr -d "'" | xargs`
 DATA_BUCKET=data_bucket-${PROJECT_NBR}
 
-gsutil du -s -h -a gs://$DATA_BUCKET/churn/input/telco-customer-churn.csv | cut -d' ' -f1,2
+gcloud storage du --summarize --readable-sizes --all-versions gs://$DATA_BUCKET/churn/input/telco-customer-churn.csv | cut -d' ' -f1,2
 ```
 Its 954 KiB.
 
@@ -354,12 +354,12 @@ Review the job execution in Dataproc -> Jobs UI
 
 Paste in Cloud Shell-
 ```
-gsutil ls $OUTPUT_PREFIX
+gcloud storage ls $OUTPUT_PREFIX
 ```
 
 Lets check the size-
 ```
-gsutil du -s -h -a ${OUTPUT_PREFIX} | cut -d' ' -f1,2
+gcloud storage du --summarize --readable-sizes --all-versions ${OUTPUT_PREFIX} | cut -d' ' -f1,2
 ```
 The author's output is 42.46 MiB
 
