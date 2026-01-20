@@ -54,8 +54,8 @@ OUTPUT_BUCKET=<your_map_reduce_output_bucket_name>
 Run the following gcloud command in Cloud Shell to create the GCS buckets.
 
 ```
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$CODE_AND_DATA_BUCKET
-gsutil mb -p $PROJECT_ID -c STANDARD -l $REGION -b on gs://$OUTPUT_BUCKET
+gcloud storage buckets create gs://$CODE_AND_DATA_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
+gcloud storage buckets create gs://$OUTPUT_BUCKET --project=$PROJECT_ID --default-storage-class=STANDARD --location=$REGION --uniform-bucket-level-access
 
 ```
 
@@ -67,8 +67,8 @@ To upload the code repository, please follow the below steps:
 - Next, execute the follow commands in cloud shell, to upload the code and data files to GCS buckets:
 
 ```
-gsutil cp data-engineer-usecase/00-scripts-and-config/pyspark/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/
-gsutil cp data-engineer-usecase/01-datasets/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/01-datasets/
-gsutil cp data-engineer-usecase/01-datasets/cust_raw_data/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/01-datasets/cust_raw_data/
+gcloud storage cp data-engineer-usecase/00-scripts-and-config/pyspark/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/00-scripts-and-config/pyspark/
+gcloud storage cp data-engineer-usecase/01-datasets/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/01-datasets/
+gcloud storage cp data-engineer-usecase/01-datasets/cust_raw_data/* gs://$CODE_AND_DATA_BUCKET/cell-tower-anomaly-detection/01-datasets/cust_raw_data/
 
 ```

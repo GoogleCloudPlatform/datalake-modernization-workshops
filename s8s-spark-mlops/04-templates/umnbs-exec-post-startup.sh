@@ -19,5 +19,6 @@
 # (User-managed notebook server)
 #........................................................................
 
-gsutil cp gs://USER_ID-s8s_notebook_bucket-PROJECT_NBR/vai-pipelines/*.ipynb /home/jupyter/
+# Note: gcloud storage cp copies 0-byte placeholder objects for folders created via the Cloud Console, while gsutil is designed to skip them.
+gcloud storage cp gs://USER_ID-s8s_notebook_bucket-PROJECT_NBR/vai-pipelines/*.ipynb /home/jupyter/
 chown jupyter:jupyter /home/jupyter/*

@@ -19,5 +19,5 @@
 # (Managed notebook server)
 #........................................................................
 
-gsutil cp gs://USER_ID-s8s_notebook_bucket-PROJECT_NBR/pyspark/*.ipynb /home/jupyter/
+gcloud storage cp gs://USER_ID-s8s_notebook_bucket-PROJECT_NBR/pyspark/*.ipynb /home/jupyter/
 #sudo chown jupyter:jupyter /home/jupyter/*

@@ -17,5 +17,5 @@
 # (Managed notebook server)
 #........................................................................
 
-gsutil cp gs://spark-stage-___PROJECT_ID___/*.ipynb /home/jupyter/ 
+gcloud storage cp gs://spark-stage-___PROJECT_ID___/*.ipynb /home/jupyter/ 
 #sudo chown jupyter:jupyter /home/jupyter/*

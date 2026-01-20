@@ -41,41 +41,41 @@ MNB_SERVER_NM=${LAB_PREFIX}-spark-ml-interactive-nb-server-${NAME}
 
 
 # Create code bucket
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://${CODE_BUCKET_NM}
+gcloud storage buckets create gs://${CODE_BUCKET_NM} --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # Create data bucket
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://${DATA_BUCKET_NM}
+gcloud storage buckets create gs://${DATA_BUCKET_NM} --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # Create spark bucket
-gsutil mb -p $PROJECT_ID -c STANDARD -l $LOCATION -b on gs://${SPARK_BUCKET_NM}
+gcloud storage buckets create gs://${SPARK_BUCKET_NM} --project=$PROJECT_ID --default-storage-class=STANDARD --location=$LOCATION --uniform-bucket-level-access
 
 # copying datasets into data bucket
-gsutil cp -r ../../01-datasets/* gs://${DATA_BUCKET_NM}
+gcloud storage cp --recursive ../../01-datasets/* gs://${DATA_BUCKET_NM}
 
 # copying template into notebook folder and carrying out sed -i operations
 
-gsutil cp ../../04-templates/mnbs-exec-post-startup-template.sh ../../03-notebooks/mnbs-exec-post-startup.sh && sed -i s/YOUR_PROJECT_NBR/${PROJECT_NBR}/g ../../03-notebooks/mnbs-exec-post-startup.sh && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/mnbs-exec-post-startup.sh
+gcloud storage cp ../../04-templates/mnbs-exec-post-startup-template.sh ../../03-notebooks/mnbs-exec-post-startup.sh && sed -i s/YOUR_PROJECT_NBR/${PROJECT_NBR}/g ../../03-notebooks/mnbs-exec-post-startup.sh && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/mnbs-exec-post-startup.sh
 
-gsutil cp ../../04-templates/DeltaLakeLab-1.ipynb ../../03-notebooks/DeltaLakeLab-1.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-1.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-1.ipynb ../../03-notebooks/DeltaLakeLab-1.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-1.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-2.ipynb ../../03-notebooks/DeltaLakeLab-2.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-2.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-2.ipynb ../../03-notebooks/DeltaLakeLab-2.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-2.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-3.ipynb ../../03-notebooks/DeltaLakeLab-3.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-3.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-3.ipynb ../../03-notebooks/DeltaLakeLab-3.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-3.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-4.ipynb ../../03-notebooks/DeltaLakeLab-4.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-4.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-4.ipynb ../../03-notebooks/DeltaLakeLab-4.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-4.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-5.ipynb ../../03-notebooks/DeltaLakeLab-5.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-5.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-5.ipynb ../../03-notebooks/DeltaLakeLab-5.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-5.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-6.ipynb ../../03-notebooks/DeltaLakeLab-6.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-6.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-6.ipynb ../../03-notebooks/DeltaLakeLab-6.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-6.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-7.ipynb ../../03-notebooks/DeltaLakeLab-7.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-7.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-7.ipynb ../../03-notebooks/DeltaLakeLab-7.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-7.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-8.ipynb ../../03-notebooks/DeltaLakeLab-8.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-8.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-8.ipynb ../../03-notebooks/DeltaLakeLab-8.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-8.ipynb
 
-gsutil cp ../../04-templates/DeltaLakeLab-9.ipynb ../../03-notebooks/DeltaLakeLab-9.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-9.ipynb
+gcloud storage cp ../../04-templates/DeltaLakeLab-9.ipynb ../../03-notebooks/DeltaLakeLab-9.ipynb && sed -i s/YOUR_ACCOUNT_NAME/${NAME}/g ../../03-notebooks/DeltaLakeLab-9.ipynb
 
 # copying notebooks into code bucket
-gsutil cp -r ../../03-notebooks/* gs://${CODE_BUCKET_NM}
+gcloud storage cp --recursive ../../03-notebooks/* gs://${CODE_BUCKET_NM}
 
 
 # Vertex AI Workbench - Managed Notebook Server Creation
