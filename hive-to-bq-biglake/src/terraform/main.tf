@@ -295,7 +295,7 @@ resource "google_compute_firewall" "gce-subnet-firewall-rule" {
     protocol = "all"
   }
 
-  source_ranges = ["0.0.0.0/0"]
+  source_ranges = [local.gce_subnet_cidr]
 
   depends_on = [
     google_compute_subnetwork.gce-subnet
@@ -357,6 +357,10 @@ resource "google_compute_instance" "gce-cdh-5-single-node" {
   labels = {
     container-vm = module.gce-advanced-container.vm_container_label
   }
+  service_account {
+    email  = google_service_account.service_account.email
+    scopes = ["cloud-platform"]
+  }
   depends_on = [
     google_compute_disk.gce-boot-disk
   ]
@@ -389,7 +393,7 @@ resource "google_service_account" "service_account" {
 
 resource "google_project_iam_member" "service_account_owner" {
   project  = local.project_id
-  role     = "roles/owner"
+  role     = "roles/bigquery.admin"
   member   = "serviceAccount:${google_service_account.service_account.email}"
 
   depends_on = [
@@ -397,19 +401,13 @@ resource "google_project_iam_member" "service_account_owner" {
   ]
 }
 
-resource "google_service_account_key" "tf_sa_key" {
-  service_account_id =  "${local.tf_sa_id}"
-  public_key_type    = "TYPE_X509_PEM_FILE"
+resource "google_project_iam_member" "service_account_storage" {
+  project  = local.project_id
+  role     = "roles/storage.admin"
+  member   = "serviceAccount:${google_service_account.service_account.email}"
+
   depends_on = [
     google_service_account.service_account
-  ]
-}
-
-resource "local_file" "json_local_sa" {
-  content     = base64decode(google_service_account_key.tf_sa_key.private_key)
-  filename = "${local.tf_sa_key_location}"
-  depends_on = [
-    google_service_account_key.tf_sa_key
   ]
 }
 

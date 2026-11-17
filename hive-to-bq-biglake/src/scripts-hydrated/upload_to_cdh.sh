@@ -20,8 +20,6 @@ CDH_CONTAINER_ID=`sudo docker container ps -q`
 LOG_DATE=`date`
 echo "###########################################################################################"
 echo "${LOG_DATE} Uploading data to CDH  node: ${CDH_CONTAINER_ID} ..."
-echo "Uploading local_key.json ..."
-sudo docker cp local_key.json ${CDH_CONTAINER_ID}:/home/cloudera/local_key.json
 echo "Uploading gcs-connector-1.7.0-hadoop2.jar ..."
 sudo docker cp gcs-connector-1.7.0-hadoop2.jar ${CDH_CONTAINER_ID}:/usr/lib/hadoop/lib/gcs-connector-1.7.0-hadoop2.jar
 echo "Uploading core-site-add.xml ..."
