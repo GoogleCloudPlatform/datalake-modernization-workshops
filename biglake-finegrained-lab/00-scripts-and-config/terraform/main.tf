@@ -212,46 +212,15 @@ resource "google_project_iam_binding" "project_viewer" {
 }
 
 /******************************************
-# 11. Dataproc editor permissions granting for all users
+# 11-13. (removed) Do NOT grant the RLS/CLS-restricted workshop users
+#        project-level roles/storage.objectAdmin, roles/dataproc.editor
+#        or roles/iam.serviceAccountUser. Those roles let a restricted
+#        user bypass BigLake row/column policies by reading the backing
+#        GCS object directly (gsutil cat) or by submitting a Dataproc
+#        job as the BigLake connection service account. The restricted
+#        users query the BigLake table via roles/viewer (block 10); GCS
+#        access is delegated to the BigLake connection service account.
 *******************************************/
-resource "google_project_iam_binding" "dataproc_admin" {
-  project = var.project_id
-  role    = "roles/dataproc.editor"
-
-  members = [
-    "user:${var.rls_username1}",
-    "user:${var.rls_username2}",
-    "user:${var.cls_username}"
-  ]
-}
-
-/******************************************
-# 12. Storage object admin permissions granting for all users
-*******************************************/
-resource "google_project_iam_binding" "storage_object_admin" {
-  project = var.project_id
-  role    = "roles/storage.objectAdmin"
-
-  members = [
-    "user:${var.rls_username1}",
-    "user:${var.rls_username2}",
-    "user:${var.cls_username}"
-  ]
-}
-
-/******************************************
-# 13. Service account user permissions granting for all users
-*******************************************/
-resource "google_project_iam_binding" "service_account_user" {
-  project = var.project_id
-  role    = "roles/iam.serviceAccountUser"
-
-  members = [
-    "user:${var.rls_username1}",
-    "user:${var.rls_username2}",
-    "user:${var.cls_username}"
-  ]
-}
 
 /******************************************
 # 14. Create Dataproc cluster buckets for all users
